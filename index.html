@@ -1,1 +1,680 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to DWLiverance Church. Join us for worship, prayer, fellowship and the Word of God.">
+  <title>DWLiverance Church | Faith, Hope & Salvation</title>
+
+  <style>
+    :root {
+      --navy: #08172f;
+      --navy-light: #122746;
+      --gold: #d8b45b;
+      --cream: #faf8f2;
+      --white: #ffffff;
+      --text: #263348;
+      --muted: #647084;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; }
+
+    .container { width: min(1120px, 90%); margin: auto; }
+
+    header {
+      background: var(--navy);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #24334b;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: .5px;
+    }
+
+    .brand small {
+      display: block;
+      font-size: .65rem;
+      color: #e0e5ef;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: .9rem;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .menu-toggle {
+      display: none;
+      color: white;
+      background: transparent;
+      border: 1px solid #718096;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-weight: 700;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .btn:hover { background: #f0d68c; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--gold);
+    }
+
+    .btn-outline:hover { color: var(--navy); }
+
+    .hero {
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(5,17,37,.96), rgba(5,17,37,.68)),
+        url("https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content { max-width: 720px; padding: 85px 0; }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 3px;
+      font-size: .8rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.7rem);
+      line-height: 1.1;
+      margin: 18px 0;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.2;
+      margin: 10px 0 16px;
+    }
+
+    h3 { color: var(--navy); margin-bottom: 8px; }
+
+    .hero p { max-width: 590px; font-size: 1.08rem; color: #e1e7f0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    section { padding: 76px 0; }
+    .section-heading { text-align: center; max-width: 680px; margin: 0 auto 38px; }
+    .section-heading p, .muted { color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 26px;
+      border-radius: 10px;
+      border: 1px solid #e9e6dd;
+      box-shadow: 0 8px 25px rgba(8,23,47,.04);
+    }
+
+    .card .symbol { font-size: 1.8rem; margin-bottom: 12px; }
+    .card p { color: var(--muted); }
+    .card .btn { margin-top: 18px; }
+
+    .about { background: white; }
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .about-image {
+      width: 100%;
+      height: 370px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .verse {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 54px 20px;
+    }
+
+    .verse blockquote {
+      max-width: 780px;
+      margin: auto;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 600;
+    }
+
+    .verse cite {
+      display: block;
+      color: var(--gold);
+      margin-top: 15px;
+      font-style: normal;
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 18px 0;
+    }
+
+    .center-line { margin: 18px auto; }
+
+    .prayer { background: #f0eee7; }
+
+    .prayer-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: start;
+    }
+
+    form { display: grid; gap: 14px; }
+
+    label { display: block; font-weight: 700; margin-bottom: 5px; }
+
+    input, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccd1da;
+      border-radius: 5px;
+      font: inherit;
+      background: white;
+    }
+
+    textarea { min-height: 130px; resize: vertical; }
+    input:focus, textarea:focus { outline: 2px solid var(--gold); }
+
+    .notice { color: var(--muted); font-size: .85rem; }
+
+    .contact { background: white; }
+
+    footer {
+      background: #050f20;
+      color: #e1e7f0;
+      padding: 38px 0 20px;
+    }
+
+    .footer-layout {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    footer h3 { color: var(--gold); }
+    footer a:hover { color: var(--gold); }
+    .footer-links { display: grid; gap: 7px; }
+    .copyright {
+      border-top: 1px solid #26344b;
+      margin-top: 28px;
+      padding-top: 18px;
+      color: #aeb8c8;
+      font-size: .85rem;
+    }
+
+    @media (max-width: 800px) {
+      .menu-toggle { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        padding: 22px 5%;
+        background: var(--navy);
+        flex-direction: column;
+        align-items: flex-start;
+        border-top: 1px solid #24334b;
+      }
+
+      .nav-links.open { display: flex; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .about-layout, .prayer-layout { grid-template-columns: 1fr; }
+      .about-image { height: 280px; }
+    }
+
+    @media (max-width: 520px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { min-height: 500px; }
+      section { padding: 55px 0; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home">
+        DWLIVERANCE CHURCH
+        <small>FAITH · HOPE · SALVATION</small>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Toggle navigation" aria-expanded="false">
+        ☰ Menu
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#sermons">Sermons</a>
+        <a href="#events">Events</a>
+        <a href="#prayer">Prayer</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Welcome to DWLiverance Church</span>
+          <h1>Experience God's Love. Discover Your Purpose.</h1>
+          <p>
+            A place of prayer, powerful worship, fellowship and a life
+            transformed through Jesus Christ. Wherever you are in your
+            journey of faith, you are welcome here.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#services">Join Us for Worship</a>
+            <a class="btn btn-outline" href="#prayer">Request Prayer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container about-layout">
+        <div>
+          <span class="eyebrow">Who We Are</span>
+          <h2>A Church Where Faith Comes Alive</h2>
+          <div class="gold-line"></div>
+          <p>
+            DWLiverance Church is a Pentecostal Christian ministry
+            committed to sharing the Gospel of Jesus Christ, nurturing
+            faith, building strong families and serving our community.
+          </p>
+          <p style="margin-top:14px">
+            Whether you are visiting church for the first time or looking
+            for a church family, we would love to welcome you.
+          </p>
+          <a href="#contact" class="btn" style="margin-top:22px">
+            Plan Your Visit
+          </a>
+        </div>
+        <img class="about-image"
+          src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1000&q=85"
+          alt="Church sanctuary prepared for worship">
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Come and Worship</span>
+          <h2>Join Us for a Service</h2>
+          <p>Make time for worship, the Word of God and fellowship.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="symbol">🙏</div>
+            <h3>Sunday Worship</h3>
+            <p>Time: [Add Sunday service time]</p>
+            <p>Join our church family for worship and the Word.</p>
+          </article>
+          <article class="card">
+            <div class="symbol">📖</div>
+            <h3>Bible Study</h3>
+            <p>Day: [Add day and time]</p>
+            <p>Grow in your understanding of Scripture together.</p>
+          </article>
+          <article class="card">
+            <div class="symbol">🕊️</div>
+            <h3>Prayer Meeting</h3>
+            <p>Day: [Add day and time]</p>
+            <p>Come together in prayer, faith and fellowship.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="verse">
+      <blockquote>
+        "For where two or three gather in my name, there am I with them."
+        <cite>Matthew 18:20 (NIV)</cite>
+      </blockquote>
+    </div>
+
+    <section id="sermons">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Grow in the Word</span>
+          <h2>Sermons & Teachings</h2>
+          <p>Make God's Word part of your everyday life.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="symbol">🎙️</div>
+            <h3>Sunday Message</h3>
+            <p>Watch or listen to our latest Sunday sermon.</p>
+            <a class="btn" href="#contact">Sermon coming soon</a>
+          </article>
+          <article class="card">
+            <div class="symbol">📖</div>
+            <h3>Bible Teachings</h3>
+            <p>Explore teachings that encourage spiritual growth.</p>
+            <a class="btn" href="#contact">Explore teachings</a>
+          </article>
+          <article class="card">
+            <div class="symbol">📺</div>
+            <h3>Live Streaming</h3>
+            <p>Join worship online when our services are streaming.</p>
+            <!-- Replace # with the church's real livestream URL -->
+            <a class="btn" href="#" id="liveLink">Watch Live</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Life Together</span>
+          <h2>Church Events</h2>
+          <p>Stay connected with what is happening in our church.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Prayer & Fasting</h3>
+            <p>Date: [Add event date]</p>
+            <p>Gather with us for prayer and spiritual renewal.</p>
+          </article>
+          <article class="card">
+            <h3>Evangelism Outreach</h3>
+            <p>Date: [Add event date]</p>
+            <p>Share the love and message of Jesus in our community.</p>
+          </article>
+          <article class="card">
+            <h3>Special Church Service</h3>
+            <p>Date: [Add event date]</p>
+            <p>Check back for details of our next special gathering.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prayer" class="prayer">
+      <div class="container prayer-layout">
+        <div>
+          <span class="eyebrow">We Are Here for You</span>
+          <h2>How Can We Pray for You?</h2>
+          <div class="gold-line"></div>
+          <p>
+            You do not have to face life's challenges alone. Share a
+            prayer request with our church team, and let us know how
+            we can support you.
+          </p>
+          <p style="margin-top:15px">
+            Your request will be prepared as a WhatsApp message for you
+            to review and send to the church.
+          </p>
+        </div>
+
+        <form id="prayerForm">
+          <div>
+            <label for="visitorName">Your name (optional)</label>
+            <input id="visitorName" name="visitorName"
+              placeholder="Enter your name">
+          </div>
+          <div>
+            <label for="prayerRequest">Prayer request</label>
+            <textarea id="prayerRequest" name="prayerRequest"
+              placeholder="How can we pray for you?" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Prayer Request</button>
+          <p class="notice">
+            Please avoid including sensitive personal details you do not
+            want shared through WhatsApp.
+          </p>
+          <p id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">We Would Love to Meet You</span>
+          <h2>Connect With Us</h2>
+          <p>Come worship with us or reach out to our church team.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="symbol">📍</div>
+            <h3>Our Location</h3>
+            <p>[Add church address, town or landmark]</p>
+            <a class="btn" id="mapLink" href="#" target="_blank"
+              rel="noopener">Find Us on Maps</a>
+          </article>
+          <article class="card">
+            <div class="symbol">💬</div>
+            <h3>WhatsApp</h3>
+            <p>Ask a question, plan your visit or connect with us.</p>
+            <a class="btn" id="whatsappLink" href="#" target="_blank"
+              rel="noopener">Chat With Us</a>
+          </article>
+          <article class="card">
+            <div class="symbol">❤️</div>
+            <h3>Support the Ministry</h3>
+            <p>Your generosity can help support the church's mission.</p>
+            <!-- Add only a verified, church-approved giving link -->
+            <a class="btn" id="givingLink" href="#">Giving details soon</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-layout">
+        <div>
+          <h3>DWLiverance Church</h3>
+          <p>Sharing the Gospel. Transforming lives.</p>
+          <p>Faith · Hope · Salvation</p>
+        </div>
+        <div class="footer-links">
+          <strong>Quick Links</strong>
+          <a href="#about">About Us</a>
+          <a href="#services">Service Times</a>
+          <a href="#sermons">Sermons</a>
+          <a href="#prayer">Prayer Requests</a>
+        </div>
+      </div>
+      <div class="copyright">
+        © <span id="year"></span> DWLiverance Church. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // MOBILE NAVIGATION
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // AUTOMATIC COPYRIGHT YEAR
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // CHURCH DETAILS
+    // Replace these sample settings with verified church information.
+    const church = {
+      whatsappNumber: "", // Country code + number, digits only
+      locationSearch: "DWLiverance Church",
+      liveUrl: "",
+      givingUrl: ""
+    };
+
+    // GOOGLE MAPS SEARCH
+    document.getElementById("mapLink").href =
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent(church.locationSearch);
+
+    // WHATSAPP CONTACT
+    const whatsappLink = document.getElementById("whatsappLink");
+
+    if (church.whatsappNumber) {
+      whatsappLink.href =
+        "https://wa.me/" + church.whatsappNumber +
+        "?text=" + encodeURIComponent(
+          "Hello DWLiverance Church, I would like to know more about your services."
+        );
+    } else {
+      whatsappLink.href = "#";
+      whatsappLink.addEventListener("click", event => {
+        event.preventDefault();
+        alert("Add the church WhatsApp number in the JavaScript settings first.");
+      });
+    }
+
+    // LIVE STREAM
+    const liveLink = document.getElementById("liveLink");
+
+    if (church.liveUrl) {
+      liveLink.href = church.liveUrl;
+      liveLink.target = "_blank";
+      liveLink.rel = "noopener";
+      liveLink.textContent = "Watch Live";
+    } else {
+      liveLink.href = "#";
+      liveLink.addEventListener("click", event => {
+        event.preventDefault();
+        alert("Add the church's real livestream link first.");
+      });
+    }
+
+    // ONLINE GIVING
+    const givingLink = document.getElementById("givingLink");
+
+    if (church.givingUrl) {
+      givingLink.href = church.givingUrl;
+      givingLink.target = "_blank";
+      givingLink.rel = "noopener";
+      givingLink.textContent = "Give to the Ministry";
+    } else {
+      givingLink.href = "#";
+      givingLink.addEventListener("click", event => {
+        event.preventDefault();
+        alert("Add a verified, church-approved giving link first.");
+      });
+    }
+
+    // PRAYER REQUEST: PREPARE WHATSAPP MESSAGE
+    document.getElementById("prayerForm").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const name = document.getElementById("visitorName").value.trim();
+      const request = document.getElementById("prayerRequest").value.trim();
+      const message = document.getElementById("formMessage");
+
+      if (!request) {
+        message.textContent = "Please enter your prayer request.";
+        return;
+      }
+
+      if (!church.whatsappNumber) {
+        message.textContent =
+          "The church WhatsApp number has not been configured yet.";
+        return;
+      }
+
+      const text =
+        "Prayer Request — DWLiverance Church\n" +
+        (name ? "Name: " + name + "\n" : "") +
+        "Request: " + request;
+
+      const url = "https://wa.me/" + church.whatsappNumber +
+        "?text=" + encodeURIComponent(text);
+
+      window.open(url, "_blank", "noopener");
+      message.textContent =
+        "WhatsApp opened. Review your message and press Send there.";
+    });
+  </script>
+</body>
+          </html>
+  
